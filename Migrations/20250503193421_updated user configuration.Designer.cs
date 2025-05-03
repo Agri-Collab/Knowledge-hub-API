@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using api.Data;
@@ -11,9 +12,11 @@ using api.Data;
 namespace AgriConnect.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250503193421_updated user configuration")]
+    partial class updateduserconfiguration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,6 +55,9 @@ namespace AgriConnect.Migrations
                     b.Property<int>("ContactNo")
                         .HasColumnType("integer");
 
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -69,6 +75,7 @@ namespace AgriConnect.Migrations
                         {
                             Id = 1,
                             ContactNo = 646974038,
+                            CreatedAt = new DateTimeOffset(new DateTime(2025, 5, 3, 21, 34, 21, 485, DateTimeKind.Unspecified).AddTicks(3990), new TimeSpan(0, 2, 0, 0, 0)),
                             Name = "Nduvho",
                             Surname = "Maguwada"
                         },
@@ -76,6 +83,7 @@ namespace AgriConnect.Migrations
                         {
                             Id = 2,
                             ContactNo = 728898987,
+                            CreatedAt = new DateTimeOffset(new DateTime(2025, 5, 3, 21, 34, 21, 494, DateTimeKind.Unspecified).AddTicks(1860), new TimeSpan(0, 2, 0, 0, 0)),
                             Name = "Themba",
                             Surname = "Cele"
                         });
