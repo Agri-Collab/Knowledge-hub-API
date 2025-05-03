@@ -1,5 +1,8 @@
+using api.Data;
+using api.Repository;
 using api.Services;
 using api.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Extensions{
     public static class ServiceExtensions
@@ -20,5 +23,15 @@ namespace api.Extensions{
         
         public static void ConfigureLoggerService(this IServiceCollection services) =>
             services.AddSingleton<ILoggerManager, LoggerManager>();
-        }
+        
+        public static void ConfigureRepositoryManager(this IServiceCollection services) =>
+            services.AddScoped<IRepositoryManager, RepositoryManager>();
+        public static void ConfigureServiceManager(this IServiceCollection services) =>
+            services.AddScoped<IServiceManager, ServiceManager>();
+        public static void ConfigureSqlContext(this IServiceCollection services,
+            IConfiguration configuration) =>
+            services.AddDbContext<DataContext>(opts =>
+            opts.UseNpgsql(configuration.GetConnectionString("sqlConnection")));
+    }
+    
 }
