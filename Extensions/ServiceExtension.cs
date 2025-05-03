@@ -1,3 +1,6 @@
+using api.Services;
+using api.Services.Interfaces;
+
 namespace api.Extensions{
     public static class ServiceExtensions
     {
@@ -14,5 +17,8 @@ namespace api.Extensions{
             {
                 
             });
-    }
+        
+        public static void ConfigureLoggerService(this IServiceCollection services) =>
+            services.AddSingleton<ILoggerManager, LoggerManager>();
+        }
 }
