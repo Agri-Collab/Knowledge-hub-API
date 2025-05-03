@@ -11,7 +11,16 @@ namespace api.Data
         { 
 
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.ApplyConfiguration(new CompanyConfiguration());
+            //modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
+        }
+
         public DbSet<User> Users { get; set; }
+        public DbSet<Product> Products { get; set;}
 
     }
+
+
 }
