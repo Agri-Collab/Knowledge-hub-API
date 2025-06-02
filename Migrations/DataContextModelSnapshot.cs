@@ -43,11 +43,18 @@ namespace AgriConnect.Migrations
 
             modelBuilder.Entity("api.Models.User", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("ContactNo")
                         .HasColumnType("integer");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -64,17 +71,19 @@ namespace AgriConnect.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a7f3b82e-2d58-4d59-a4a7-3c5d6212c720",
-                            ContactNo = 646974038,
+                            Id = 1,
+                            ContactNo = 948998437,
+                            Email = "nduvho@gmail.com",
                             Name = "Nduvho",
                             Surname = "Maguwada"
                         },
                         new
                         {
-                            Id = "a7f3b82e-2d58-4d59-a4a7-3c5d6212c520",
-                            ContactNo = 728898987,
-                            Name = "Themba",
-                            Surname = "Cele"
+                            Id = 2,
+                            ContactNo = 89876076,
+                            Email = "lesley@gmai.com",
+                            Name = "Lesley",
+                            Surname = "Maf"
                         });
                 });
 #pragma warning restore 612, 618

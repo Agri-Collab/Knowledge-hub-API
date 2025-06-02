@@ -4,7 +4,7 @@ using api.Services.Interfaces;
 
 namespace api.Services
 {
-    internal sealed class UserService : IUserService
+    public sealed class UserService : IUserService
     {
         private readonly IRepositoryManager _repository;
         private readonly ILoggerManager _logger;
@@ -15,24 +15,19 @@ namespace api.Services
             _logger = logger;
         }
 
-        public IEnumerable<User> GetAllUser(bool trackChanges)
+        public async Task<IEnumerable<User>> GetAllUsers(bool trackChanges)
         {
             try
             {
-                var companies =
-                _repository.Company.GetAllUser(trackChanges);
-            return companies;
+                var users = await _repository.User.GetAllUsers(trackChanges);
+                return users;
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong in the {nameof(GetAllUser)} service method {ex}");
-            throw;
+                _logger.LogError($"Something went wrong in {nameof(GetAllUsers)}: {ex}");
+                throw;
             }
         }
-
-        public object GetAllUsers(bool trackChanges)
-        {
-            throw new NotImplementedException();
-        }
     }
+
 }
