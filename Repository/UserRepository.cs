@@ -25,34 +25,30 @@ namespace api.Repository
             Delete(user);
 
         }
-        public async Task<User> GetUser(string id, bool trackChanges)
+        public async Task<User> GetUser(int id, bool trackChanges)
         {
             var user = await FindByCondition(a => a.Id == id, trackChanges).SingleOrDefaultAsync();
 
             if (user is null)
-            {
-                throw new Exception("User not found");
-            }
+                throw new KeyNotFoundException($"User with id {id} was not found.");
 
             return user;
         }
 
-        public IEnumerable<User> GetAllUsers(bool trackChanges) =>
-            FindAll(trackChanges)
-            .OrderBy(c => c.Name)
-            .ToList();
-        
+        public async Task<IEnumerable<User>> GetAllUsers(bool trackChanges) =>
+            await FindAll(trackChanges)
+                .OrderBy(c => c.Name)
+                .ToListAsync();
+
         public async Task<User> GetUserByEmail(string userEmail, bool trackChanges)
         {
             var user = await FindByCondition(a => a.Email == userEmail, trackChanges).FirstOrDefaultAsync();
 
             if (user is null)
-            {
-                throw new ArgumentNullException("User email was not found on database");
-            }
+                throw new KeyNotFoundException($"User with email '{userEmail}' was not found.");
 
             return user;
-
         }
+
     }
 }
