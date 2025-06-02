@@ -14,7 +14,10 @@ namespace api.Repository
             _userRepository = new Lazy<IUserRepository>(() => new
             UserRepository(repositoryContext));
         }
-        public IUserRepository Company => _userRepository.Value;
+        public IUserRepository User => _userRepository.Value;
+
+        //public IUserRepository User { get => throw new NotImplementedException(); }
+
         public void Save() => _repositoryContext.SaveChanges();
         }
 }
