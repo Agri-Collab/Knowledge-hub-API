@@ -7,5 +7,6 @@ namespace api.Repository.Interfaces
         void CreateUser(User user);
         void UpdateUser(User user);
         void DeleteUser(User user);
+        IEnumerable<User> GetAllUser(bool trackChanges);
     }
 }

@@ -25,7 +25,7 @@ namespace api.Repository
             Delete(user);
 
         }
-        public async Task<User> GetUser(string id, bool trackChanges)
+        public async Task<User> GetUser(int id, bool trackChanges)
         {
             var user = await FindByCondition(a => a.Id == id, trackChanges).SingleOrDefaultAsync();
 
@@ -53,6 +53,11 @@ namespace api.Repository
 
             return user;
 
+        }
+
+        public IEnumerable<User> GetAllUser(bool trackChanges)
+        {
+            throw new NotImplementedException();
         }
     }
 }
