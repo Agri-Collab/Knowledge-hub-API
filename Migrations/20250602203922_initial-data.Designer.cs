@@ -12,8 +12,8 @@ using api.Data;
 namespace AgriConnect.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250503115443_Modified products entity")]
-    partial class Modifiedproductsentity
+    [Migration("20250602203922_initial-data")]
+    partial class initialdata
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,8 +55,9 @@ namespace AgriConnect.Migrations
                     b.Property<int>("ContactNo")
                         .HasColumnType("integer");
 
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -69,6 +70,24 @@ namespace AgriConnect.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ContactNo = 948998437,
+                            Email = "nduvho@gmail.com",
+                            Name = "Nduvho",
+                            Surname = "Maguwada"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ContactNo = 89876076,
+                            Email = "lesley@gmai.com",
+                            Name = "Lesley",
+                            Surname = "Maf"
+                        });
                 });
 #pragma warning restore 612, 618
         }

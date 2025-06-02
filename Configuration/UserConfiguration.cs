@@ -12,11 +12,22 @@ namespace api.Configuration
             (
                 new User
                 {
+                    Id = 1,
+                    Name = "Nduvho",
+                    Surname = "Maguwada",
+                    ContactNo = 948998437,
+                    Email = "nduvho@gmail.com",
+                   
                    
                 },
                 new User
                 {
-                    
+                    Id = 2,
+                    Name = "Lesley",
+                    Surname = "Maf",
+                    ContactNo = 89876076,
+                    Email = "lesley@gmai.com",
+
                 }
             );
         }
