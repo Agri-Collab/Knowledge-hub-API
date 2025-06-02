@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.Threading.Tasks;
 using api.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,16 +21,16 @@ namespace api.Controllers
         [HttpGet("all")]
         //[Authorize]
         [HttpGet]
-        public IActionResult GetCompanies()
+        public async Task<IActionResult> GetUsers()
         {
             try
+        {
+            var users = await _service.UserService.GetAllUsers(trackChanges: false);
+            return Ok(users);
+        }
+            catch (Exception ex)
             {
-                var companies =
-                _service.UserService.GetAllUsers(trackChanges: false);
-                return Ok(companies);
-            }
-            catch
-            {
+                Console.WriteLine($"Exception in GetUsers: {ex.Message}");
                 return StatusCode(500, "Internal server error");
             }
         }
