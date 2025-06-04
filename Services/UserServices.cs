@@ -55,46 +55,34 @@ namespace api.Services
         
         public async Task<UserDto> CreateUser(UserForCreateDto userDto)
         {
-            // 1. Map DTO to User model using AutoMapper (which now handles Name, Surname, ContactNo, Email, UserName, NormalizedEmail, NormalizedUserName)
+            
             var user = _mapper.Map<User>(userDto);
 
-            // 2. Check for existing email using UserManager (which uses NormalizedEmail)
             var userEmail = await _userManager.FindByEmailAsync(userDto.Email);
             if (userEmail != null)
             {
-                throw new BadRequestException("The provided email already exists."); // Use a more specific exception if available, or just throw new Exception
+                throw new BadRequestException("The provided email already exists."); 
             }
 
-            // 3. Create the user using UserManager. This handles PasswordHash and SecurityStamp automatically.
-            // PasswordHasher is usually handled internally by UserManager.
             var result = await _userManager.CreateAsync(user, userDto.Password);
 
             if (!result.Succeeded)
             {
                 var errors = string.Join(", ", result.Errors.Select(e => e.Description));
-                throw new Exception($"Failed to create user: {errors}"); // Or a more specific exception
+                throw new Exception($"Failed to create user: {errors}");
             }
 
-            // 4. Add user to role (if specified)
             if (!string.IsNullOrWhiteSpace(userDto.Role))
             {
                 var roleResult = await _userManager.AddToRoleAsync(user, userDto.Role);
                 if (!roleResult.Succeeded)
                 {
-                    // Handle error if role assignment fails
-                    await _userManager.DeleteAsync(user); // Optionally delete user if role assignment is critical
+                    await _userManager.DeleteAsync(user); 
                     var errors = string.Join(", ", roleResult.Errors.Select(e => e.Description));
                     throw new Exception($"Failed to add user to role: {errors}");
                 }
             }
 
-            // 5. No need for _repository.User.CreateUser(user); or _repository.SaveAsync() here
-            // UserManager.CreateAsync already saves the user to the database.
-            // The call to _repository.SaveAsync() after AddToRoleAsync is also redundant if AddToRoleAsync saves changes internally.
-            // If AddToRoleAsync does NOT save changes (check source or test), then you might need one _repository.SaveAsync() after it.
-            // However, typically UserManager methods handle persistence.
-
-            // 6. Map the created user back to UserDto for return
             var userToReturn = _mapper.Map<UserDto>(user);
 
             return userToReturn;

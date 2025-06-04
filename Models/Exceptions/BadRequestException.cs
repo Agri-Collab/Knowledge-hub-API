@@ -1,7 +1,7 @@
-// api/Models/Exceptions/BadRequestException.cs (or api/Exceptions/BadRequestException.cs)
+
 using System;
 
-namespace api.Models.Exceptions // Or 'api.Exceptions' if you created a separate folder/project
+namespace api.Models.Exceptions
 {
     public class BadRequestException : Exception
     {
