@@ -1,5 +1,7 @@
 using api.Data;
 using api.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace api.Repository
 {
@@ -18,6 +20,12 @@ namespace api.Repository
 
         //public IUserRepository User { get => throw new NotImplementedException(); }
 
-        public void Save() => _repositoryContext.SaveChanges();
+        public async Task SaveAsync() => await _repositoryContext.SaveChangesAsync();
+
+        public async Task<IDbContextTransaction> BeginTransactionAsync()
+        {
+            return await _repositoryContext.Database.BeginTransactionAsync();
         }
+    }
+
 }

@@ -1,12 +1,11 @@
-namespace api.Models{
-    public class User {
+using Microsoft.AspNetCore.Identity;
+namespace api.Models
+{
+    public class User : IdentityUser<int> 
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string ContactNo { get; set; }
 
-        public int Id { get; set; }
-        public string Name { get; set;}
-        public string Surname { get; set;}
-        public int ContactNo { get; set;}
-        public string Email { get; set;}
-        //public DateTimeOffset CreatedAt { get; set; }
-        
     }
 }
