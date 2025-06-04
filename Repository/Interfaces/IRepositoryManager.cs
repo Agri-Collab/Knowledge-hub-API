@@ -5,6 +5,6 @@ namespace api.Repository
     public interface IRepositoryManager
 {
         IUserRepository User { get; }
-        void Save();
+        Task SaveAsync();
 }
 }

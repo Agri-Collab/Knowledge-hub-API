@@ -1,5 +1,5 @@
 using System.Diagnostics;
-using AgriConnect.Models;
+using api.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AgriConnect.Controllers
