@@ -8,7 +8,7 @@ using api.Services.Interfaces;
 using AutoMapper.Internal;
 using api.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore; // Needed for IdentityRole<int>
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore; 
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +17,6 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
 
-// Configure Identity with int as the key type for IdentityRole
 builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
 {
     options.User.RequireUniqueEmail = true;
@@ -73,24 +72,20 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// --- START ROLE SEEDING LOGIC ---
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     try
     {
-        // Use IdentityRole<int> since your User primary key is int
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole<int>>>();
-        // Add other managers if you plan to seed users or other data
-        // var userManager = services.GetRequiredService<UserManager<User>>();
 
-        string[] roleNames = { "FARMER", "AGRIMECHANIC", "ADMIN" /* Add any other roles here */ };
+
+        string[] roleNames = { "FARMER", "AGRIMECHANIC", "ADMIN"  };
 
         foreach (var roleName in roleNames)
         {
             if (!await roleManager.RoleExistsAsync(roleName))
             {
-                // Create the role with IdentityRole<int>
                 await roleManager.CreateAsync(new IdentityRole<int>(roleName));
                 Console.WriteLine($"Role '{roleName}' created successfully.");
             }
@@ -99,32 +94,14 @@ using (var scope = app.Services.CreateScope())
                 Console.WriteLine($"Role '{roleName}' already exists.");
             }
         }
-
-        // Optional: Seed an initial admin user here if needed
-        // For example:
-        // var adminUser = await userManager.FindByNameAsync("admin@yourdomain.com");
-        // if (adminUser == null)
-        // {
-        //     adminUser = new User { UserName = "admin@yourdomain.com", Email = "admin@yourdomain.com" };
-        //     var createResult = await userManager.CreateAsync(adminUser, "YourAdminPassword!");
-        //     if (createResult.Succeeded)
-        //     {
-        //         await userManager.AddToRoleAsync(adminUser, "ADMIN");
-        //         Console.WriteLine("Admin user created and assigned to ADMIN role.");
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("Failed to create admin user: " + string.Join(", ", createResult.Errors.Select(e => e.Description)));
-        //     }
-        // }
+        
     }
     catch (Exception ex)
     {
-        var loggerForSeeding = services.GetRequiredService<ILogger<Program>>(); // Use ILogger<Program> for seeding errors
+        var loggerForSeeding = services.GetRequiredService<ILogger<Program>>();
         loggerForSeeding.LogError(ex, "An error occurred while seeding the database with roles.");
     }
 }
-// --- END ROLE SEEDING LOGIC ---
 
 
 var logger = app.Services.GetRequiredService<ILoggerManager>();
