@@ -4,6 +4,7 @@ using api.Dto;
 using api.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using api.Models.Exceptions;
+//using Microsoft.AspNetCore.Authorization;
 
 namespace api.Controllers
 {
@@ -63,6 +64,53 @@ namespace api.Controllers
             var createdUser = await _service.UserService.CreateUser(userDto);
 
             return CreatedAtRoute("UserById", new { id = createdUser.Id }, createdUser);
+        }
+
+        [HttpDelete("{id:int}")]
+        //[Authorize]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            try
+            {
+                var userExists = await _service.UserService.GetUser(id, trackChanges: false);
+                if (userExists == null)
+                {
+                    return NotFound($"User with ID {id} not found.");
+                }
+
+                await _service.UserService.DeleteUser(id, trackChanges: false); // Added trackChanges: false
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception in DeleteUser: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpPut("{id:int}")]
+        //[Authorize]
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] UserForUpdateDto userDto)
+        {
+            if (userDto is null)
+                return BadRequest("User object is null");
+
+            try
+            {
+                var userExists = await _service.UserService.GetUser(id, trackChanges: false);
+                if (userExists == null)
+                {
+                    return NotFound($"User with ID {id} not found.");
+                }
+
+                await _service.UserService.UpdateUser(id, userDto, trackChanges: true);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception in UpdateUser: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
         }
     }
 }
