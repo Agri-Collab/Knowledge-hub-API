@@ -1,16 +1,15 @@
 using api.Configuration;
 using api.Models;
-using Microsoft.EntityFrameworkCore;
-using System;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity; 
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Data
 {
     public class DataContext : IdentityDbContext<User, IdentityRole<int>, int>
     {
         public DataContext(DbContextOptions<DataContext> options)
-        : base(options)
+            : base(options)
         {
         }
 
@@ -19,10 +18,9 @@ namespace api.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfiguration(new UserConfiguration());
-
+            modelBuilder.ApplyConfiguration(new QuestionConfiguration());
         }
 
-
-        public DbSet<Product> Products { get; set;}
+        public DbSet<Question> Questions { get; set; }
     }
 }
