@@ -9,14 +9,24 @@ namespace api.Repository
     {
         private readonly DataContext _repositoryContext;
         private readonly Lazy<IUserRepository> _userRepository;
+        private readonly Lazy<IQuestionRepository> _questionrepository;
+        private readonly Lazy<ICommentRepository> _commenRepository;
 
         public RepositoryManager(DataContext repositoryContext)
         {
             _repositoryContext = repositoryContext;
             _userRepository = new Lazy<IUserRepository>(() => new
             UserRepository(repositoryContext));
+
+            _questionrepository = new Lazy<IQuestionRepository>(() => new
+            QuestionRepository(repositoryContext));
+
+            _commenRepository = new Lazy<ICommentRepository>(() => new
+            CommentRepository(repositoryContext));
         }
         public IUserRepository User => _userRepository.Value;
+        public IQuestionRepository Question => _questionrepository.Value;
+        public ICommentRepository Comment => _commenRepository.Value;
 
         //public IUserRepository User { get => throw new NotImplementedException(); }
 
