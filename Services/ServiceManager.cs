@@ -11,6 +11,7 @@ namespace api.Services
         private readonly Lazy<IUserService> _userService;
         private readonly Lazy<IQuestionService> _questionService;
         private readonly Lazy<ICommentService> _commentService;
+        private readonly Lazy<IArticleService> _articleService;
 
         public ServiceManager(
             IRepositoryManager repositoryManager,
@@ -18,7 +19,8 @@ namespace api.Services
             IMapper mapper,
             UserManager<User> userManager,
             IQuestionService questionService,
-            ICommentService commentService
+            ICommentService commentService,
+            IArticleService articleService
             )
         {
             _userService = new Lazy<IUserService>(() =>
@@ -29,10 +31,14 @@ namespace api.Services
 
             _commentService = new Lazy<ICommentService>(() =>
                 commentService);
+
+            _articleService = new Lazy<IArticleService>(() =>
+                articleService);
         }
-    
+
         public IUserService UserService => _userService.Value;
         public IQuestionService QuestionService => _questionService.Value;
         public ICommentService CommentService => _commentService.Value;
+        public IArticleService ArticleService => _articleService.Value;
     }
 }

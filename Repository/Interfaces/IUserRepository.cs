@@ -10,6 +10,7 @@ namespace api.Repository.Interfaces
         Task<User> GetUser(int id, bool trackChanges);
         Task<IEnumerable<User>> GetAllUsers(bool trackChanges);
         Task<User> GetUserByEmail(string userEmail, bool trackChanges);
+        Task<User> GetUserAsync(int userId, bool trackChanges);
     }
 
 }
