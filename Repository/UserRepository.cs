@@ -49,6 +49,9 @@ namespace api.Repository
 
             return user;
         }
+        public async Task<User> GetUserAsync(int userId, bool trackChanges) =>
+            await FindByCondition(u => u.Id == userId, trackChanges)
+                  .SingleOrDefaultAsync();
 
     }
 }
