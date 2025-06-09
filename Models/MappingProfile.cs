@@ -33,6 +33,10 @@ namespace api.Models
             CreateMap<CommentForUpdateDto, Comment>();
             CreateMap<Comment, CommentForUpdateDto>();
 
+            CreateMap<ArticleForCreateDto, Article>();
+            CreateMap<Article, ArticleDto>();
+            CreateMap<ArticleForUpdateDto, Article>();
+            CreateMap<Article, ArticleForUpdateDto>();
 
         }
     }
