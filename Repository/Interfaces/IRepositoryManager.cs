@@ -7,7 +7,7 @@ namespace api.Repository
         IUserRepository User { get; }
         IQuestionRepository Question { get; }
         ICommentRepository Comment { get; }
-
+        IArticleRepository Article { get; } 
         Task SaveAsync();
 }
 }

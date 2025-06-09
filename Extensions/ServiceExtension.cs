@@ -32,6 +32,7 @@ namespace api.Extensions
         {
             services.AddScoped<IQuestionService, QuestionService>();
             services.AddScoped<ICommentService, CommentService>();
+            services.AddScoped<IArticleService, ArticleService>();
 
             services.AddScoped<IServiceManager, ServiceManager>();
         }
