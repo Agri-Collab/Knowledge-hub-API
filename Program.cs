@@ -100,6 +100,7 @@ using (var scope = app.Services.CreateScope())
         loggerForSeeding.LogError(ex, "An error occurred while seeding the database with roles.");
     }
 }
+app.UseDeveloperExceptionPage(); // Only in Development
 
 
 var logger = app.Services.GetRequiredService<ILoggerManager>();

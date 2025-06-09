@@ -11,6 +11,7 @@ namespace api.Repository
         private readonly Lazy<IUserRepository> _userRepository;
         private readonly Lazy<IQuestionRepository> _questionrepository;
         private readonly Lazy<ICommentRepository> _commenRepository;
+        private readonly Lazy<IArticleRepository> _articleRepository;
 
         public RepositoryManager(DataContext repositoryContext)
         {
@@ -23,10 +24,15 @@ namespace api.Repository
 
             _commenRepository = new Lazy<ICommentRepository>(() => new
             CommentRepository(repositoryContext));
+
+            _articleRepository = new Lazy<IArticleRepository>(() => new
+            ArticleRepository(repositoryContext));
         }
         public IUserRepository User => _userRepository.Value;
         public IQuestionRepository Question => _questionrepository.Value;
         public ICommentRepository Comment => _commenRepository.Value;
+        public IArticleRepository Article => _articleRepository.Value;
+        
 
         //public IUserRepository User { get => throw new NotImplementedException(); }
 

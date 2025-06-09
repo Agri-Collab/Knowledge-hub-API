@@ -1,4 +1,5 @@
 using api.Configuration;
+using api.Configurations;
 using api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -19,8 +20,10 @@ namespace api.Data
 
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new QuestionConfiguration());
+            modelBuilder.ApplyConfiguration(new ArticleConfiguration());
         }
 
         public DbSet<Question> Questions { get; set; }
+        public DbSet<Article> Articles { get; set; }
     }
 }
