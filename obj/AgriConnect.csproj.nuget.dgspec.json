@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/nduvhomaguwada/Downloads/AgriConnect/AgriConnect.csproj": {}
+    "/Users/nduvhomaguwada/.Trash/clean-repo/AgriConnect.csproj": {}
   },
   "projects": {
-    "/Users/nduvhomaguwada/Downloads/AgriConnect/AgriConnect.csproj": {
+    "/Users/nduvhomaguwada/.Trash/clean-repo/AgriConnect.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/nduvhomaguwada/Downloads/AgriConnect/AgriConnect.csproj",
+        "projectUniqueName": "/Users/nduvhomaguwada/.Trash/clean-repo/AgriConnect.csproj",
         "projectName": "AgriConnect",
-        "projectPath": "/Users/nduvhomaguwada/Downloads/AgriConnect/AgriConnect.csproj",
+        "projectPath": "/Users/nduvhomaguwada/.Trash/clean-repo/AgriConnect.csproj",
         "packagesPath": "/Users/nduvhomaguwada/.nuget/packages/",
-        "outputPath": "/Users/nduvhomaguwada/Downloads/AgriConnect/obj/",
+        "outputPath": "/Users/nduvhomaguwada/.Trash/clean-repo/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/nduvhomaguwada/.nuget/NuGet/NuGet.Config"

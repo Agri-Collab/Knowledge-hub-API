@@ -17,41 +17,41 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AgriConnect
 build_property.RootNamespace = AgriConnect
-build_property.ProjectDir = /Users/nduvhomaguwada/Downloads/AgriConnect/
+build_property.ProjectDir = /Users/nduvhomaguwada/.Trash/clean-repo/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/nduvhomaguwada/Downloads/AgriConnect
+build_property.MSBuildProjectDirectory = /Users/nduvhomaguwada/.Trash/clean-repo
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[/Users/nduvhomaguwada/Downloads/AgriConnect/Views/Home/Index.cshtml]
+[/Users/nduvhomaguwada/.Trash/clean-repo/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/nduvhomaguwada/Downloads/AgriConnect/Views/Home/Privacy.cshtml]
+[/Users/nduvhomaguwada/.Trash/clean-repo/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/nduvhomaguwada/Downloads/AgriConnect/Views/Shared/Error.cshtml]
+[/Users/nduvhomaguwada/.Trash/clean-repo/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/nduvhomaguwada/Downloads/AgriConnect/Views/Shared/_ValidationScriptsPartial.cshtml]
+[/Users/nduvhomaguwada/.Trash/clean-repo/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/nduvhomaguwada/Downloads/AgriConnect/Views/_ViewImports.cshtml]
+[/Users/nduvhomaguwada/.Trash/clean-repo/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/nduvhomaguwada/Downloads/AgriConnect/Views/_ViewStart.cshtml]
+[/Users/nduvhomaguwada/.Trash/clean-repo/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/nduvhomaguwada/Downloads/AgriConnect/Views/Shared/_Layout.cshtml]
+[/Users/nduvhomaguwada/.Trash/clean-repo/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3simm5vp7a
