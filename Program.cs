@@ -34,6 +34,7 @@ builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
 var tempHasher = new PasswordHasher<User>();
 var tempUser = new User();
 string hash = tempHasher.HashPassword(tempUser, "Password@01");
+Console.WriteLine("Hashed Password: " + hash);
 
 builder.Services.AddAutoMapper(cfg =>
 {
@@ -77,7 +78,7 @@ using (var scope = app.Services.CreateScope())
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole<int>>>();
 
 
-        string[] roleNames = { "FARMER", "EXPERT FARMER", "ADMIN"  };
+        string[] roleNames = { "FARMER", "AGRIMECHANIC", "ADMIN"  };
 
         foreach (var roleName in roleNames)
         {
@@ -99,7 +100,7 @@ using (var scope = app.Services.CreateScope())
         loggerForSeeding.LogError(ex, "An error occurred while seeding the database with roles.");
     }
 }
-app.UseDeveloperExceptionPage();
+app.UseDeveloperExceptionPage(); // Only in Development
 
 
 var logger = app.Services.GetRequiredService<ILoggerManager>();
