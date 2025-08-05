@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JpeCRsqps+g=",
+  "dgSpecHash": "GNlDAyxUrqA=",
   "success": true,
-  "projectFilePath": "/Users/nduvhomaguwada/Downloads/AgriConnect/AgriConnect.csproj",
+  "projectFilePath": "/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/AgriConnect.csproj",
   "expectedPackageFiles": [
     "/Users/nduvhomaguwada/.nuget/packages/automapper/14.0.0/automapper.14.0.0.nupkg.sha512",
     "/Users/nduvhomaguwada/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
