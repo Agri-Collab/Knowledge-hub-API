@@ -249,9 +249,9 @@
 /Users/nduvhomaguwada/Downloads/AgriConnect/obj/Debug/net9.0/AgriConnect.pdb
 /Users/nduvhomaguwada/Downloads/AgriConnect/obj/Debug/net9.0/AgriConnect.genruntimeconfig.cache
 /Users/nduvhomaguwada/Downloads/AgriConnect/obj/Debug/net9.0/ref/AgriConnect.dll
+/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/nlog.config
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/appsettings.Development.json
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/appsettings.json
-/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/nlog.config
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/AgriConnect.staticwebassets.runtime.json
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/AgriConnect.staticwebassets.endpoints.json
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/AgriConnect
@@ -500,3 +500,4 @@
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/obj/Debug/net9.0/AgriConnect.pdb
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/obj/Debug/net9.0/AgriConnect.genruntimeconfig.cache
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/obj/Debug/net9.0/ref/AgriConnect.dll
+/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
