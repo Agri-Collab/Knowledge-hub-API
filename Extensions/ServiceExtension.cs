@@ -13,26 +13,33 @@ namespace api.Extensions
             {
                 options.AddPolicy("CorsPolicy", builder =>
                     builder.AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader());
+                           .AllowAnyMethod()
+                           .AllowAnyHeader());
             });
 
         public static void ConfigureIISIntegration(this IServiceCollection services) =>
             services.Configure<IISOptions>(options =>
             {
+                
             });
 
         public static void ConfigureLoggerService(this IServiceCollection services) =>
             services.AddSingleton<ILoggerManager, LoggerManager>();
 
-        public static void ConfigureRepositoryManager(this IServiceCollection services) =>
+        public static void ConfigureRepositoryManager(this IServiceCollection services)
+        {
             services.AddScoped<IRepositoryManager, RepositoryManager>();
+            services.AddScoped<IPrivateChatRepository, PrivateChatRepository>();
+            services.AddScoped<IPrivateMessageRepository, PrivateMessageRepository>();
+        }
 
         public static void ConfigureServiceManager(this IServiceCollection services)
         {
             services.AddScoped<IQuestionService, QuestionService>();
             services.AddScoped<ICommentService, CommentService>();
             services.AddScoped<IArticleService, ArticleService>();
+            services.AddScoped<IPrivateChatService, PrivateChatService>();
+            services.AddScoped<IPrivateMessageService, PrivateMessageService>();
 
             services.AddScoped<IServiceManager, ServiceManager>();
         }
