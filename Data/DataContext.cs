@@ -21,9 +21,15 @@ namespace api.Data
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new QuestionConfiguration());
             modelBuilder.ApplyConfiguration(new ArticleConfiguration());
+            modelBuilder.ApplyConfiguration(new PrivateChatConfiguration());
+            modelBuilder.ApplyConfiguration(new PrivateMessageConfiguration());
         }
+
 
         public DbSet<Question> Questions { get; set; }
         public DbSet<Article> Articles { get; set; }
+        public DbSet<PrivateChat> PrivateChats { get; set; }
+        public DbSet<PrivateMessage> PrivateMessages { get; set; }
+        
     }
 }
