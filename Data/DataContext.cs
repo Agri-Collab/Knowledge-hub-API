@@ -30,6 +30,8 @@ namespace api.Data
         public DbSet<Article> Articles { get; set; }
         public DbSet<PrivateChat> PrivateChats { get; set; }
         public DbSet<PrivateMessage> PrivateMessages { get; set; }
+        public DbSet<ChatMessage> ChatMessages { get; set; }
+        public DbSet<ChatSession> ChatSessions { get; set; }
         
     }
 }
