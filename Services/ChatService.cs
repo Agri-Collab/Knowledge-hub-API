@@ -4,81 +4,72 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using api.Services;
+using api.Models;
+using api.Repositories;
+using Microsoft.Extensions.Configuration;
 
-public class ChatService : IChatService
+namespace api.Services
 {
-    private readonly HttpClient _httpClient;
-    private readonly string _apiKey;
-
-    public ChatService(IConfiguration configuration)
+    public class ChatService : IChatService
     {
-        _apiKey = configuration["OpenAI:ApiKey"];
-        _httpClient = new HttpClient();
-        _httpClient.DefaultRequestHeaders.Authorization =
-            new AuthenticationHeaderValue("Bearer", _apiKey);
-    }
+        private readonly HttpClient _httpClient;
+        private readonly string _apiKey;
+        private readonly IChatRepository _chatRepository;
 
-    public async Task<string> SendMessageAsync(string userMessage)
-    {
-        Console.WriteLine($"[ChatService] Sending message to OpenAI: {userMessage}");
-
-        var requestBody = new
+        public ChatService(IConfiguration configuration, IChatRepository chatRepository)
         {
-            model = "gpt-3.5-turbo",
-            messages = new[]
+            _apiKey = configuration["OpenAI:ApiKey"];
+            _httpClient = new HttpClient();
+            _httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", _apiKey);
+
+            _chatRepository = chatRepository;
+        }
+
+        public async Task<string> SendMessageAsync(string userId, string userMessage)
+        {
+            await _chatRepository.AddMessageAsync(new ChatMessage
             {
-                new { role = "user", content = userMessage }
-            }
-        };
+                UserId = userId,
+                Sender = "user",
+                Message = userMessage
+            });
 
-        var content = new StringContent(
-            JsonSerializer.Serialize(requestBody),
-            Encoding.UTF8,
-            "application/json"
-        );
+            var requestBody = new
+            {
+                model = "gpt-3.5-turbo",
+                messages = new[]
+                {
+                    new { role = "user", content = userMessage }
+                }
+            };
 
-        try
-        {
-            var response = await _httpClient.PostAsync(
-                "https://api.openai.com/v1/chat/completions",
-                content
-            );
+            var content = new StringContent(JsonSerializer.Serialize(requestBody), Encoding.UTF8, "application/json");
 
-            Console.WriteLine($"[ChatService] Response status code: {response.StatusCode}");
-
+            var response = await _httpClient.PostAsync("https://api.openai.com/v1/chat/completions", content);
             var responseContent = await response.Content.ReadAsStringAsync();
-            Console.WriteLine($"[ChatService] Response content: {responseContent}");
-
-            if (!response.IsSuccessStatusCode)
-            {
-                return $"Error: {response.StatusCode} - {responseContent}";
-            }
 
             using var doc = JsonDocument.Parse(responseContent);
-            var message = doc.RootElement
+            var botMessageContent = doc.RootElement
                 .GetProperty("choices")[0]
                 .GetProperty("message")
                 .GetProperty("content")
-                .GetString();
+                .GetString() ?? "No response from GPT";
 
-            return message ?? "No response from GPT";
-        }
-        catch (HttpRequestException ex)
-        {
-            Console.WriteLine($"[ChatService] HTTP error: {ex.Message}");
-            return $"HTTP error: {ex.Message}";
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"[ChatService] Unexpected error: {ex.Message}");
-            return $"Unexpected error: {ex.Message}";
-        }
-    }
+            await _chatRepository.AddMessageAsync(new ChatMessage
+            {
+                UserId = userId,
+                Sender = "bot",
+                Message = botMessageContent
+            });
 
-    public async Task<string> SendMessageAsync(int sessionId, string userMessage)
-    {
-        // Optional: implement session-based chat history
-        return await SendMessageAsync(userMessage);
+            return botMessageContent;
+        }
+
+        public async Task<string> SendMessageAsync(int sessionId, string userMessage)
+        {
+            string userId = $"session-{sessionId}";
+            return await SendMessageAsync(userId, userMessage);
+        }
     }
 }

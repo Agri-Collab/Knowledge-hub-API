@@ -1,6 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
-using api.Dtos;
+using api.DTOs;
+using api.Repositories;
+using api.Models;
 using api.Services;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace api.Controllers
 {
@@ -9,28 +14,61 @@ namespace api.Controllers
     public class ChatController : ControllerBase
     {
         private readonly IChatService _chatService;
+        private readonly IChatRepository _chatRepository;
 
-        public ChatController(IChatService chatService)
+        public ChatController(IChatService chatService, IChatRepository chatRepository)
         {
             _chatService = chatService;
+            _chatRepository = chatRepository;
         }
 
         [HttpPost("send")]
-        public async Task<IActionResult> SendMessage([FromBody] ChatRequestDto request)
+        public async Task<IActionResult> Send([FromBody] ChatRequestDto dto)
         {
-            if (string.IsNullOrWhiteSpace(request.Message))
-                return BadRequest("Message cannot be empty.");
+            if (dto == null || string.IsNullOrWhiteSpace(dto.UserId) || string.IsNullOrWhiteSpace(dto.Message))
+                return BadRequest("UserId and Message are required.");
 
-            try
+            var botResponse = await _chatService.SendMessageAsync(dto.UserId, dto.Message);
+
+            return Ok(new ChatResponseDto
             {
-                var response = await _chatService.SendMessageAsync(request.Message);
-                return Ok(new { Response = response });
-            }
-            catch (HttpRequestException ex)
+                Sender = "bot",
+                Message = botResponse,
+                Timestamp = DateTime.UtcNow,
+                UserId = dto.UserId
+            });
+        }
+
+        [HttpGet("history/{userId}")]
+        public async Task<IActionResult> History(string userId)
+        {
+            var messages = await _chatRepository.GetMessagesByUserAsync(userId);
+
+            var history = messages.Select(m => new ChatResponseDto
             {
-                // Handles network errors or API errors other than 429
-                return StatusCode(500, new { Error = ex.Message });
-            }
+                Sender = m.Sender,
+                Message = m.Message,
+                Timestamp = m.Timestamp,
+                UserId = m.UserId
+            }).ToList();
+
+            return Ok(history);
+        }
+
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllHistory()
+        {
+            var messages = await _chatRepository.GetAllMessagesAsync();
+
+            var history = messages.Select(m => new ChatResponseDto
+            {
+                Sender = m.Sender,
+                Message = m.Message,
+                Timestamp = m.Timestamp,
+                UserId = m.UserId
+            }).ToList();
+
+            return Ok(history);
         }
     }
 }

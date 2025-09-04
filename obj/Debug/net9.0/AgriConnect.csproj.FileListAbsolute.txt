@@ -260,9 +260,12 @@
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/AgriConnect.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/AgriConnect.pdb
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/AutoMapper.dll
+/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Azure.AI.OpenAI.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Azure.Core.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Azure.Identity.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Humanizer.dll
+/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Microsoft.AspNetCore.Cryptography.Internal.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
@@ -305,12 +308,14 @@
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Microsoft.SqlServer.Server.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Microsoft.Win32.SystemEvents.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Mono.TextTemplating.dll
+/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Newtonsoft.Json.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/NLog.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/NLog.Extensions.Logging.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/NLog.Web.AspNetCore.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Npgsql.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.Design.dll
+/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/OpenAI.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Swashbuckle.AspNetCore.Swagger.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -500,8 +505,3 @@
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/obj/Debug/net9.0/AgriConnect.pdb
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/obj/Debug/net9.0/AgriConnect.genruntimeconfig.cache
 /Users/nduvhomaguwada/Downloads/Knowledge-hub-API/obj/Debug/net9.0/ref/AgriConnect.dll
-/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
-/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
-/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Azure.AI.OpenAI.dll
-/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/Newtonsoft.Json.dll
-/Users/nduvhomaguwada/Downloads/Knowledge-hub-API/bin/Debug/net9.0/OpenAI.dll

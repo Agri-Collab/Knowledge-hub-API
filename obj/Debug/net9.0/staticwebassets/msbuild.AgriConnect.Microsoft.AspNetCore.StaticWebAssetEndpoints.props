@@ -4,13 +4,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\AgriConnect.wegqwbpaxl.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-mBGYjSvrs3J28PBYGBXPNmA9N9mbrnb9CRu3/mcgLFk="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1080"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022mBGYjSvrs3J28PBYGBXPNmA9N9mbrnb9CRu3/mcgLFk=\u0022"},{"Name":"Last-Modified","Value":"Thu, 07 Aug 2025 11:26:24 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1080"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022mBGYjSvrs3J28PBYGBXPNmA9N9mbrnb9CRu3/mcgLFk=\u0022"},{"Name":"Last-Modified","Value":"Mon, 01 Sep 2025 14:49:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AgriConnect/AgriConnect.wegqwbpaxl.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\AgriConnect.wegqwbpaxl.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wegqwbpaxl"},{"Name":"integrity","Value":"sha256-mBGYjSvrs3J28PBYGBXPNmA9N9mbrnb9CRu3/mcgLFk="},{"Name":"label","Value":"_content/AgriConnect/AgriConnect.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1080"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022mBGYjSvrs3J28PBYGBXPNmA9N9mbrnb9CRu3/mcgLFk=\u0022"},{"Name":"Last-Modified","Value":"Thu, 07 Aug 2025 11:26:24 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1080"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022mBGYjSvrs3J28PBYGBXPNmA9N9mbrnb9CRu3/mcgLFk=\u0022"},{"Name":"Last-Modified","Value":"Mon, 01 Sep 2025 14:49:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AgriConnect/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
