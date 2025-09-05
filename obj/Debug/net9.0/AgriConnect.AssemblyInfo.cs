@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("ecd88125-a4cf-40eb-8f12-b07d5d3e9337")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("AgriConnect")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e0634cc1c42d25bda2015725baeb79655105c81")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+402167a13600c739ee6a49ad896999dfc851a2e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("AgriConnect")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AgriConnect")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

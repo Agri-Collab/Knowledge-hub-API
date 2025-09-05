@@ -1,0 +1,11 @@
+# Ignore local development settings
+appsettings.Development.json
+*.secrets.json
+
+# Ignore build outputs
+bin/
+obj/
+
+# IDE/editor folders (optional)
+.vscode/
+.idea/
