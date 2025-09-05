@@ -10,3 +10,4 @@ obj/
 # IDE/editor folders (optional)
 .vscode/
 .idea/
+.DS_Store
