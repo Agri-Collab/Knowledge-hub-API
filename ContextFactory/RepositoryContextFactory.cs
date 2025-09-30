@@ -14,7 +14,7 @@ namespace ContextFactory
                 .Build();
 
             var builder = new DbContextOptionsBuilder<DataContext>()
-                .UseNpgsql(configuration.GetConnectionString("sqlConnection"));
+                .UseNpgsql(configuration.GetConnectionString("RenderPostgres"));
 
             return new DataContext(builder.Options);
         }

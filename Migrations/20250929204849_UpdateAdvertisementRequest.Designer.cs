@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using api.Data;
@@ -11,9 +12,11 @@ using api.Data;
 namespace AgriConnect.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20250929204849_UpdateAdvertisementRequest")]
+    partial class UpdateAdvertisementRequest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,11 +165,11 @@ namespace AgriConnect.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ImageContentType")
-                        .HasColumnType("text");
-
                     b.Property<byte[]>("ImageData")
                         .HasColumnType("bytea");
+
+                    b.Property<string>("ImageMimeType")
+                        .HasColumnType("text");
 
                     b.Property<bool?>("IsApproved")
                         .HasColumnType("boolean");
@@ -180,11 +183,11 @@ namespace AgriConnect.Migrations
                     b.Property<int?>("UserId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("VideoContentType")
-                        .HasColumnType("text");
-
                     b.Property<byte[]>("VideoData")
                         .HasColumnType("bytea");
+
+                    b.Property<string>("VideoMimeType")
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 

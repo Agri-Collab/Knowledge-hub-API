@@ -6,5 +6,6 @@ namespace api.Services.Interfaces
         IQuestionService QuestionService { get; }
         ICommentService CommentService { get; }
         IArticleService ArticleService { get; }
+        IAdvertisementService AdvertisementService { get; }
     }
 }

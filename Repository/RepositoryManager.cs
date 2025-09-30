@@ -16,6 +16,7 @@ namespace api.Repository
         private readonly Lazy<IArticleRepository> _articleRepository;
         private readonly Lazy<IPrivateChatRepository> _privateChatRepository;
         private readonly Lazy<IPrivateMessageRepository> _privateMessageRepository;
+        private readonly Lazy<IAdvertisementRepository> _advertisementRepository;
 
         public RepositoryManager(DataContext repositoryContext)
         {
@@ -27,6 +28,7 @@ namespace api.Repository
             _articleRepository = new Lazy<IArticleRepository>(() => new ArticleRepository(repositoryContext));
             _privateChatRepository = new Lazy<IPrivateChatRepository>(() => new PrivateChatRepository(repositoryContext));
             _privateMessageRepository = new Lazy<IPrivateMessageRepository>(() => new PrivateMessageRepository(repositoryContext));
+            _advertisementRepository = new Lazy<IAdvertisementRepository>(() => new AdvertisementRepository(repositoryContext));
         }
 
         public IUserRepository User => _userRepository.Value;
@@ -35,6 +37,7 @@ namespace api.Repository
         public IArticleRepository Article => _articleRepository.Value;
         public IPrivateChatRepository PrivateChat => _privateChatRepository.Value;
         public IPrivateMessageRepository PrivateMessage => _privateMessageRepository.Value;
+        public IAdvertisementRepository Advertisement => _advertisementRepository.Value;
 
         public async Task SaveAsync() => await _repositoryContext.SaveChangesAsync();
 
